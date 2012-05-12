@@ -1,4 +1,15 @@
-def merge_sort(arr)
+def inversions1(arr)
+  count = 0
+  (0...arr.length).each do |i|
+    (i...arr.length).each do |j|
+      count = count + 1 if (arr[i] > arr[j])
+    end
+  end
+  count
+end
+
+$count = 0
+def inversions(arr)
   return arr if arr.length == 0 or arr.length == 1
   n = arr.length / 2
   arr1 = merge_sort(arr[0...n])
@@ -17,19 +28,10 @@ def merge(arr1, arr2)
     else
       arr << arr2[i2]
       i2 = i2 + 1
+      $count = $count + (n1 - i1)
     end
   end
   (i1...n1).each { |ii1| arr << arr1[ii1] }
   (i2...n2).each { |ii2| arr << arr2[ii2] }
   arr
 end
-
-def merge1(*arrs)
-  n = arrs.length - 1
-  arr = []
-  for i in 0..n do
-    arr = merge1(arr, arrs[i])
-  end
-  arr
-end
-
