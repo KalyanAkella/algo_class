@@ -50,7 +50,6 @@ class Heap
     child_index1, child_index2 = child_indices(curr_index)
     child_node1, child_node2 = @arr[child_index1], @arr[child_index2]
     until (child_node1.nil? or curr_node.key <= child_node1.key) and (child_node2.nil? or curr_node.key <= child_node2.key)
-      puts "Parent: #{curr_node.key}, Child1: #{child_node1.nil? ? '<empty>' : child_node1.key}, Child2: #{child_node2.nil? ? '<empty>' : child_node2.key}"
       if !child_node1.nil? and !child_node2.nil?
         if child_node1.key < child_node2.key
           @arr[curr_index], @arr[child_index1] = @arr[child_index1], @arr[curr_index]
