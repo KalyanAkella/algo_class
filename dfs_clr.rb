@@ -45,7 +45,7 @@ def dfs_visit_recurse(node, time, cc)
       puts "#{node.id}~>#{other_node.id}=>Tree Edge"
       time = dfs_visit_recurse(other_node, time, cc)
     else
-      puts "#{node.id}~>#{other_node.id}=>Backward Edge" if other_node.color == 'G'
+      puts "#{node.id}~>#{other_node.id}=>Backward Edge - CYCLE DETECTED !!!" if other_node.color == 'G'
       puts "#{node.id}~>#{other_node.id}=>Cross/Forward Edge" if other_node.color == 'B'
     end
   end
